@@ -12,7 +12,7 @@ import { smallImage } from "../util";
 //animations
 import { popUp } from "../animations";
 
-const Game = ({ name, released, id, image }) => {
+const Game = ({ name, released, id, image, video }) => {
   //make the two animation ID's match in datatype
   const stringPathId = id.toString();
   //load details
@@ -30,13 +30,13 @@ const Game = ({ name, released, id, image }) => {
         layoutId={stringPathId}
         onClick={loadDetailHandler}
       >
-        <motion.h3 llayoutId={`title ${stringPathId}`}>{name}</motion.h3>
-        <p>{released}</p>
         <motion.img
           layoutId={`image ${stringPathId}`}
           src={smallImage(image, 640)}
           alt={name}
         />
+        <motion.h3 llayoutId={`title ${stringPathId}`}>{name}</motion.h3>
+        <p>{released}</p>
       </StyledGame>
     </Link>
   );
@@ -55,7 +55,11 @@ const StyledGame = styled(motion.div)`
     width: 100%;
     height: 40vh;
     object-fit: cover;
-    padding-bottom: 2rem;
+    padding-bottom: 0;
+  }
+  p {
+    justify-self: end;
+    align-self: end;
   }
 `;
 

@@ -48,23 +48,25 @@ const Home = () => {
         ) : (
           ""
         )}
-        <h2>Popular Games</h2>
+
+        <h2>Upcoming Games</h2>
         <Games>
-          {popular &&
-            popular.map((game) => (
+          {upcoming &&
+            upcoming.map((game) => (
               <Game
                 name={game.name}
                 released={game.released}
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
+                video="{game.clip.320}"
               />
             ))}
         </Games>
-        <h2>Upcoming Games</h2>
+        <h2>Popular Games</h2>
         <Games>
-          {upcoming &&
-            upcoming.map((game) => (
+          {popular &&
+            popular.map((game) => (
               <Game
                 name={game.name}
                 released={game.released}
@@ -85,6 +87,7 @@ const Home = () => {
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
+                ratingsCount={game.ratings_count}
               />
             ))}
         </Games>
@@ -103,7 +106,7 @@ const GameList = styled(motion.div)`
 const Games = styled(motion.div)`
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
 `;

@@ -71,7 +71,10 @@ const GameDetail = ({ pathId }) => {
             <Stats>
               <div className="rating">
                 <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
-                <p>Rating: {game.rating}</p>
+                <p>
+                  Rating: {game.rating}{" "}
+                  <span>|| Total Rates: {game.ratings_count}</span>
+                </p>
                 {getStars()}
               </div>
               <Info>
@@ -93,6 +96,9 @@ const GameDetail = ({ pathId }) => {
                 src={smallImage(game.background_image, 1280)}
                 alt={game.background_image}
               />
+              <video controls>
+                <source src="{game.clip.640}" />
+              </video>
             </Media>
             <Description>
               <p>{game.description_raw}</p>
@@ -145,6 +151,7 @@ const Detail = styled(motion.div)`
   z-index: 10;
   img {
     width: 100%;
+    /* padding: 1rem 0; */
   }
 `;
 
@@ -177,6 +184,11 @@ const Media = styled(motion.div)`
     width: 100%;
     height: 90vh;
     object-fit: cover;
+  }
+  video {
+    width: 100%;
+    padding-top: 2rem;
+    outline: none;
   }
 `;
 
