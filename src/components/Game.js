@@ -34,7 +34,10 @@ const Game = ({ name, released, id, image }) => {
   );
 };
 const StyledGame = styled(motion.div)`
+  width: 100%;
+  align-self: center;
   min-height: 30vh;
+  height: 100%;
   box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;
@@ -42,7 +45,7 @@ const StyledGame = styled(motion.div)`
   overflow: hidden;
   img {
     width: 100%;
-    height: 50vh;
+    height: 40vh;
     object-fit: cover;
     padding-bottom: 2rem;
   }
