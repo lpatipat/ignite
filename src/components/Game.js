@@ -18,8 +18,7 @@ const Game = ({ name, released, id, image, game }) => {
     if (game.clip != null) {
       videoLink = game.clip.clip;
     } else {
-      videoLink =
-        "https://media.rawg.io/media/stories-640/7f3/7f31f872e91d4219adb928a46504f945.mp4";
+      videoLink = "alt";
     }
     return videoLink;
   };

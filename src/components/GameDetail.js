@@ -97,7 +97,7 @@ const GameDetail = ({ pathId }) => {
                 alt={game.background_image}
               />
               <video controls>
-                <source src="{game.clip.640}" />
+                <source src={game.clip.clip} />
               </video>
             </Media>
             <Description>
