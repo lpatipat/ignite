@@ -51,7 +51,6 @@ const Game = ({ name, released, id, image, game }) => {
           onMouseOver={(event) => event.target.play(videoLink)}
           onMouseOut={(event) => event.target.load(videoLink)}
           muted="muted"
-          preload="auto"
         >
           <source src={videoLink} />
         </motion.video>

@@ -41,6 +41,7 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  game={game}
                 />
               ))}
             </Games>
