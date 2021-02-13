@@ -12,7 +12,19 @@ import { smallImage } from "../util";
 //animations
 import { popUp } from "../animations";
 
-const Game = ({ name, released, id, image, video }) => {
+const Game = ({ name, released, id, image, game }) => {
+  let videoLink = "";
+  const videoCheck = () => {
+    if (game.clip != null) {
+      videoLink = game.clip.clip;
+    } else {
+      videoLink =
+        "https://media.rawg.io/media/stories-640/7f3/7f31f872e91d4219adb928a46504f945.mp4";
+    }
+    return videoLink;
+  };
+  videoCheck();
+  console.log(videoLink);
   //make the two animation ID's match in datatype
   const stringPathId = id.toString();
   //load details
@@ -30,11 +42,20 @@ const Game = ({ name, released, id, image, video }) => {
         layoutId={stringPathId}
         onClick={loadDetailHandler}
       >
-        <motion.img
+        {/* <motion.img
           layoutId={`image ${stringPathId}`}
           src={smallImage(image, 640)}
           alt={name}
-        />
+        /> */}
+        <motion.video
+          poster={smallImage(image, 640)}
+          onMouseOver={(event) => event.target.play(videoLink)}
+          onMouseOut={(event) => event.target.load(videoLink)}
+          muted="muted"
+          preload="auto"
+        >
+          <source src={videoLink} />
+        </motion.video>
         <motion.h3 llayoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
       </StyledGame>
@@ -60,6 +81,13 @@ const StyledGame = styled(motion.div)`
   p {
     justify-self: end;
     align-self: end;
+  }
+  video {
+    height: auto;
+    width: 100%;
+  }
+  video[poster] {
+    object-fit: cover;
   }
 `;
 

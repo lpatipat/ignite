@@ -59,7 +59,7 @@ const Home = () => {
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
-                video="{game.clip.320}"
+                game={game}
               />
             ))}
         </Games>
@@ -73,6 +73,7 @@ const Home = () => {
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
+                game={game}
               />
             ))}
         </Games>
@@ -87,7 +88,7 @@ const Home = () => {
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
-                ratingsCount={game.ratings_count}
+                game={game}
               />
             ))}
         </Games>
